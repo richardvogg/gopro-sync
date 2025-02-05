@@ -6,5 +6,5 @@ Several GoPros are started around the same time. It is known which GoPro was sta
 
 
 The script will output plots that help to verify visually that the correct offset was actually found.
-![imgs/A_e13_c8.png]
-![imgs/B_e11_c8.png]
+![](imgs/A_e13_c8.png)
+![](imgs/B_e11_c8.png)
