@@ -8,7 +8,7 @@ Either synchronize all videos in an experiment, or select handpicked cameras to 
 
 We use a sliding window approach by sliding the video that starts later over the video that starts earlier and calculating the absolute difference in their mono audio file. The correct offset usually has a negative peak.
 
-![](Sync.png)
+![](imgs/Sync.png)
 
 What to do if the minimum was not found?
 - Play around with the tStart, tEnd and tEnd2 parameters which determine which part of the audio is used for comparison (e.g. the first 200 seconds of the video that starts later, are compared to the first 300 seconds of the video that starts earlier - this means that you expect the offset to happen within the first 100 seconds of the video). If no minimum is visible, maybe you have to extend the end time.

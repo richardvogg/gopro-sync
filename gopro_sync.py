@@ -80,8 +80,6 @@ for input_path in list_dirs:
 
 
         if cameras != "all":
-            #gopr_dict = {list(gopr_dict)[cam2list[k]]: gopr_dict[list(gopr_dict)[cam2list[k]]] for k in cameras}
-            #find the cameras with cam4 if 4 is in the list with cameras
             gopr_dict = {key: value for key, value in gopr_dict.items() if any(f'_cam{camera}' in key for camera in cameras)}
             print(gopr_dict)
 
