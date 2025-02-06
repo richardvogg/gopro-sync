@@ -1,6 +1,20 @@
 # Temporal synchronization of several GoPros
 
-## Idea
+## Setup
+
+To load the conda environment from the `environment.yml` file, use the following command:
+
+```sh
+conda env create -f environment.yml
+```
+
+After that, activate the environment.
+
+```sh
+conda activate gopro_sync
+```
+
+## Method
 
 Several GoPros are started around the same time. It is known which GoPro was started before the others. There is some distinctive audio signal audible in all cameras. With this script, we want to find the temporal offset of each camera to the main camera and pad the beginning with black frames, so that all videos are synchronized afterwards.
 
