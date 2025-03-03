@@ -10,7 +10,7 @@ import subprocess
 from pathlib import Path
 from audio_clicker_helper import *
 
-path_to_files = ".../NewBoxesHalfOpen/"
+path_to_files =  "/usr/users/vogg/sfb1528s3/B06/2024 march-june/reminder lift/"
 cameras = 'all' #'all' # #'all' or list of cameras [4,7] (always mention camera 7) 
 tStart = 0
 tEnd2 = 200 # first 60 seconds of second video 200
@@ -30,20 +30,23 @@ for path in os.listdir(rootdir):
  
 list_dirs.sort()
 
-
-experiment_number = 0
+experiment_number = {}
 
 for input_path in list_dirs:
 
-    experiment_number += 1
-    experiment_number = experiment_number % 3
+    group = input_path.parent.name
+    print(group)
+    group_letter = 'A' if group[:1].upper() == 'X' else group[:1].upper()
+    print(group_letter)
+    if group_letter in experiment_number:
+        experiment_number[group_letter] += 1
+    else:
+        experiment_number[group_letter] = 1
+
 
     try:
 
-        group = input_path.parent.name
-        print(group)
-        group_letter = group[:1].upper()
-        print(group_letter)
+        
 
         output_path = rootdir / "Converted" / group
         output_path.mkdir(parents=True, exist_ok=True)
@@ -105,7 +108,7 @@ for input_path in list_dirs:
                 
                 
             #Join videos which come from the same camera
-            mp4_output = output_path / (f'{group_letter}_e{experiment_number}_c{camera}_joined.MP4')
+            mp4_output = output_path / (f'{group_letter}_e{experiment_number[group_letter]}_c{camera}_joined.MP4')
             if mp4_output.exists():
                 print("PASS on joined files")
                 pass
